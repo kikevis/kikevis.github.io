@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="es" data-theme="hacker">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+
+    <title>Geovanny Enrique Villa Sánchez — Ingeniero de Sistemas · Full Stack & Ciberseguridad</title>
+    <meta
+      name="description"
+      content="Ingeniero de Sistemas (egresado) con más de 5 años uniendo desarrollo Full Stack, arquitectura cloud en Microsoft 365 y seguridad de la información bajo OWASP e ISO/IEC 27001. Barranquilla, Colombia."
+    />
+    <meta name="author" content="Geovanny Enrique Villa Sánchez" />
+    <meta name="theme-color" content="#05070a" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Geovanny Enrique Villa Sánchez — Full Stack & Ciberseguridad" />
+    <meta
+      property="og:description"
+      content="Desarrollo seguro, cloud y defensa. Portafolio de Geovanny Enrique Villa Sánchez, Ingeniero de Sistemas."
+    />
+    <meta property="og:image" content="./geovanny.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <script>
+      // Aplica el tema guardado antes del primer pintado (evita el flash).
+      (function () {
+        try {
+          var t = localStorage.getItem('gv-theme');
+          var valid = ['hacker', 'noir', 'light'];
+          if (!t || valid.indexOf(t) === -1) t = 'hacker';
+          document.documentElement.setAttribute('data-theme', t);
+          document.documentElement.style.background =
+            t === 'light' ? '#f4f4f1' : t === 'noir' ? '#0a0a0a' : '#05070a';
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

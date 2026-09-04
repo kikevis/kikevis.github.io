@@ -1,0 +1,29 @@
+# dependencias
+node_modules
+
+# build
+dist
+dist-ssr
+*.tsbuildinfo
+
+# caches
+.vite
+.cache
+
+# entorno
+.env
+.env.*
+!.env.example
+
+# sistema / editor
+.DS_Store
+Thumbs.db
+*.local
+.idea
+.vscode/*
+!.vscode/extensions.json
+
+# logs
+npm-debug.log*
+yarn-error.log*
+pnpm-debug.log*

@@ -1,0 +1,55 @@
+# ----------------------------------------------------------------------
+# 1. SEGURIDAD: Ocultar el listado de archivos en directorios
+# ----------------------------------------------------------------------
+Options -Indexes
+
+# ----------------------------------------------------------------------
+# 2. SEGURIDAD: Cabeceras HTTP de Protección
+# ----------------------------------------------------------------------
+<IfModule mod_headers.c>
+  # Previene que la página sea incrustada en iFrames de otros sitios (Anti-Clickjacking)
+  Header set X-Frame-Options "SAMEORIGIN"
+
+  # Previene la interpretación incorrecta de tipos de archivos (MIME Sniffing)
+  Header set X-Content-Type-Options "nosniff"
+
+  # Habilita el filtro de XSS en navegadores antiguos
+  Header set X-XSS-Protection "1; mode=block"
+
+  # Controla la información de referencia enviada en las peticiones
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# ----------------------------------------------------------------------
+# 3. ENRUTAMIENTO: Redirección SPA (React Router / Vite)
+# ----------------------------------------------------------------------
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Si el archivo o directorio existe físicamente, sírvelo directamente
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # Si la ruta no existe físicamente, redirige todo a index.html
+  RewriteRule ^ index.html [L]
+</IfModule>
+
+# ----------------------------------------------------------------------
+# 4. RENDIMIENTO: Control de caché para archivos estáticos de Vite
+# ----------------------------------------------------------------------
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresDefault "access plus 1 month"
+
+  # HTML no se guarda en caché agresiva para permitir actualizaciones inmediatas
+  ExpiresByType text/html "access plus 0 seconds"
+
+  # Archivos de la carpeta /assets (JS, CSS e imágenes comprimidas)
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+</IfModule>
