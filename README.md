@@ -1,4 +1,4 @@
-# Portafolio · Geovanny Enrique Villa Sánchez
+# Portafolio · Geovanny Villa Sánchez
 
 Landing de una sola página con fondo WebGL animado y tres temas intercambiables.
 Todo el contenido sale de la hoja de vida y vive en un único archivo de datos.
@@ -19,6 +19,16 @@ npm run preview  # revisa el build antes de subirlo
 
 Para Vercel o Cloudflare Pages: framework **Vite**, build `npm run build`,
 carpeta de salida `dist`. No hace falta configurar nada más.
+
+### GitHub Pages
+
+`.github/workflows/deploy.yml` compila y publica en cada push a `main`.
+El repositorio `kikevis.github.io` debe tener **Settings → Pages → Source:
+GitHub Actions** (no "Deploy from a branch").
+
+El workflow también copia la carpeta `pagina-antigua/`, si existe, dentro del
+sitio publicado: el portafolio queda en la raíz y la web anterior en
+`/pagina-antigua/`.
 
 ## Temas
 
