@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Error 404 · TPrime</title>
+
+    <!--
+      Pagina de error 404 — TPrime
+
+      Sirve para cualquier sitio de TPrime: no menciona ningun dominio y todos
+      los enlaces son relativos, asi que funciona igual en tprime.com.co o en
+      cualquier subdominio.
+
+      Todo va aqui dentro (estilos incluidos) a proposito: cuando el servidor
+      responde un error, es probable que lo que falle sea justamente un archivo
+      externo. Una pagina de error que depende de otro archivo puede quedar sin
+      estilos justo cuando mas se necesita.
+    -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton+SC&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
+    />
+
+    <style>
+      :root {
+        --negro: #000000;
+        --tinta: #ffffff;
+        --suave: #8f8f8f;
+        --oro: #d4af37;
+        --oro-claro: #f5e7b8;
+        --oro-hondo: #94761f;
+        --linea: #2a2a2a;
+      }
+
+      * { box-sizing: border-box; }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        overflow-x: hidden;
+        padding: 3.5rem 1.5rem;
+        background: var(--negro);
+        color: var(--tinta);
+        font-family: 'Space Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      /* Resplandor dorado tenue: el mismo aire del sitio, sin imagenes. */
+      body::before {
+        content: '';
+        position: absolute;
+        top: -30vh;
+        left: 50%;
+        width: 120vw;
+        height: 90vh;
+        transform: translateX(-50%);
+        background: radial-gradient(
+          ellipse at center,
+          rgba(212, 175, 55, 0.10) 0%,
+          rgba(212, 175, 55, 0.03) 38%,
+          transparent 68%
+        );
+        pointer-events: none;
+      }
+
+      /* El codigo gigante de fondo. */
+      .fantasma {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-family: 'Anton SC', Impact, sans-serif;
+        font-size: clamp(190px, 40vw, 440px);
+        line-height: 0.78;
+        letter-spacing: 0.02em;
+        color: var(--tinta);
+        opacity: 0.045;
+        pointer-events: none;
+        user-select: none;
+        white-space: nowrap;
+      }
+
+      .marca {
+        position: absolute;
+        top: 1.9rem;
+        left: 50%;
+        transform: translateX(-50%);
+        display: inline-flex;
+        align-items: center;
+        gap: 0.6rem;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-decoration: none;
+        color: var(--tinta);
+      }
+      .marca svg { display: block; }
+
+      main {
+        position: relative;
+        z-index: 1;
+        max-width: 33rem;
+        width: 100%;
+        text-align: center;
+      }
+
+      .etiqueta {
+        margin: 0 0 1.1rem;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.34em;
+        text-transform: uppercase;
+        color: var(--oro);
+      }
+
+      h1 {
+        margin: 0 0 1rem;
+        font-family: 'Anton SC', Impact, sans-serif;
+        font-weight: 400;
+        font-size: clamp(30px, 6.5vw, 50px);
+        line-height: 1.08;
+        letter-spacing: 0.005em;
+      }
+
+      p.texto {
+        margin: 0 auto 2.4rem;
+        max-width: 27rem;
+        font-size: 14px;
+        line-height: 1.75;
+        color: var(--suave);
+      }
+
+      .acciones {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.8rem;
+        justify-content: center;
+      }
+
+      .boton {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.9rem 1.7rem;
+        border-radius: 999px;
+        border: 1px solid var(--oro);
+        background: var(--oro);
+        color: var(--negro);
+        font-family: inherit;
+        font-size: 12.5px;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-decoration: none;
+        cursor: pointer;
+        transition:
+          transform 220ms cubic-bezier(0.4, 0, 0.2, 1),
+          background-color 220ms,
+          border-color 220ms;
+      }
+      .boton:hover {
+        transform: translateY(-2px);
+        background: var(--oro-claro);
+        border-color: var(--oro-claro);
+      }
+      .boton.borde {
+        background: transparent;
+        border-color: var(--linea);
+        color: var(--tinta);
+      }
+      .boton.borde:hover {
+        background: transparent;
+        border-color: var(--oro);
+        color: var(--oro);
+      }
+      .boton:focus-visible {
+        outline: 2px solid var(--oro);
+        outline-offset: 3px;
+      }
+
+      .pie {
+        position: absolute;
+        bottom: 1.8rem;
+        left: 0;
+        right: 0;
+        margin: 0;
+        text-align: center;
+        font-size: 10.5px;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: #5a5a5a;
+      }
+      .pie a {
+        color: var(--oro-hondo);
+        text-decoration: none;
+      }
+      .pie a:hover { color: var(--oro); }
+
+      @media (max-height: 600px) {
+        .marca, .pie { position: static; transform: none; margin: 0 auto; }
+        .marca { margin-bottom: 2rem; }
+        .pie { margin-top: 2.5rem; }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .boton { transition: none; }
+        .boton:hover { transform: none; }
+      }
+    </style>
+  </head>
+  <body>
+    <span class="fantasma" aria-hidden="true">404</span>
+
+    <a class="marca" href="/">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <circle cx="12" cy="12" r="10.2" stroke="#d4af37" stroke-width="1.6" />
+        <path d="M7.4 8.4h9.2M12 8.4v8" stroke="#d4af37" stroke-width="1.9" stroke-linecap="round" />
+      </svg>
+      TPrime
+    </a>
+
+    <main>
+      <p class="etiqueta">Error 404</p>
+      <h1>Esta página no existe</h1>
+      <p class="texto">El enlace está roto o la página ya no está aquí. Puede que la dirección tenga un error de escritura.</p>
+      <div class="acciones">
+        <a class="boton" href="/">Volver al inicio</a>
+        <button class="boton borde" type="button" onclick="history.back()">
+          Regresar
+        </button>
+      </div>
+    </main>
+
+    <p class="pie">
+      Tecnología blindada · <a href="https://tprime.com.co">tprime.com.co</a>
+    </p>
+  </body>
+</html>
